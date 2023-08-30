@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -23,21 +24,26 @@ public class AccountSceneController {
     public Button btnBack;
     public AnchorPane root;
 
+    public Label lblStatus;
+
     public ArrayList<String[]> temp;
+
 
     public void initialize(){
         txtNumber.setDisable(true);
         txtName.setDisable(true);
         txtDeposit.setDisable(true);
         btnSave.setDisable(true);
+        lblStatus.setVisible(false);
         btnNewAccount.requestFocus();
 
-        //Data store = new Data();
-        //temp = store.getData();
-//        Data store = new Data();
-//        if(store.getTemp()==null)store.setTemp(new ArrayList<>());
-//        temp= store.getTemp();
+
     }
+    public void initData(ArrayList<String[]> data){
+        if(data == null)temp = new ArrayList<String[]>();
+        else temp=data;
+    }
+
     public void btnSaveOnAction(ActionEvent actionEvent) {
         if(nameValid(txtName.getText())){
             txtName.requestFocus();
@@ -48,71 +54,56 @@ public class AccountSceneController {
             return;
         }
 
-        //Data dataStore = new Data();
-//        AppInitializer a1 = new AppInitializer();
-//        if(a1.mainStore==null)a1.mainStore= new ArrayList<>();
-//        a1.mainStore=temp;
-        //System.out.println("btn save"+ temp.size());
+        txtNumber.setText(String.format("SDB-%05d",temp.size()+1));
 
         String[] collect = new String[3];
         collect[0] = txtNumber.getText();
         collect[1] = txtName.getText();
         collect[2] = txtDeposit.getText();
-
-        Data store = new Data();
-        if(store.getTemp()==null)store.setTemp(new ArrayList<>());
-        temp=store.getTemp();
         temp.add(collect);
-        store.setTemp(temp);
-        //dataStore.setTemp(temp);
 
+        lblStatus.setText(String.format("%s : %s account has been created successfully",txtNumber.getText(),txtName.getText()));
         dispClear();
         btnSave.setDisable(true);
+        lblStatus.setVisible(true);
         btnNewAccount.requestFocus();
-        System.out.println(store.getTemp().size());
-
-
+        System.out.println(temp.size());
 
     }
 
     public void btnNewAccountOnAction(ActionEvent actionEvent) {
-        Data store = new Data();
-        if(store.getTemp()==null)store.setTemp(new ArrayList<>());
-        temp=store.getTemp();
+
         txtName.setDisable(false);
         txtDeposit.setDisable(false);
         btnSave.setDisable(false);
-//        Data account = new Data();
-//        System.out.println(account.getData().size());
-        txtName.requestFocus();
-        //txtNumber.setText(String.format("SDB-%05d",account.getData().size()+1));
+        lblStatus.setVisible(false);
+        //System.out.println("in new account "+temp.size());
         txtNumber.setText(String.format("SDB-%05d",temp.size()+1));
+        txtName.requestFocus();
 
     }
 
     public void btnBackOnAction(ActionEvent actionEvent) throws Exception{
-        AnchorPane mainRoot = FXMLLoader.load(getClass().getResource("/view/MainScene.fxml"));
-        Scene mainScene = new Scene(mainRoot);
-        Stage stage = (Stage) root.getScene().getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/MainScene.fxml"));
+        AnchorPane mainSceneRoot = fxmlLoader.load();
+
+        MainSceneController mainSceneController = fxmlLoader.getController();
+        mainSceneController.initData(temp);
+
+        Scene mainScene = new Scene(mainSceneRoot);
+        Stage stage = new Stage();
         stage.setScene(mainScene);
         stage.setTitle("Banking App");
-        stage.sizeToScene();
-        stage.centerOnScreen();
+        stage.show();
 
-        FadeTransition fade = new FadeTransition(Duration.millis(500), mainRoot);
+        FadeTransition fade = new FadeTransition(Duration.millis(500), mainSceneRoot);
         fade.setFromValue(0);
         fade.setToValue(1);
         fade.playFromStart();
 
-
-//        if(account.mainStore==null)account.mainStore= new ArrayList<>();
-//        account.mainStore = temp;
-//        account.man[0]= "yes";
-//        account.man[1] = "no";
-//        System.out.println(account.mainStore);
-//        System.out.println(temp);
-
-        System.out.println("back btn "+ temp.size());
+        Stage accountStage = (Stage) root.getScene().getWindow();
+        accountStage.close();
 
     }
     public void dispClear(){
@@ -144,11 +135,11 @@ public class AccountSceneController {
         return false;
     }
     public boolean depositValid(String amount){
-        if (txtDeposit.getText().strip().isEmpty()){
+        if (amount.strip().isEmpty()){
             errorMessage("Initial deposit input Error","Input Error","Initial deposit cannot be empty");
             return true;
         }else{
-            for (int i = 0; i < txtDeposit.getText().length(); i++) {
+            for (int i = 0; i < amount.length(); i++) {
                 if(!Character.isDigit(amount.charAt(i))){
                     errorMessage("Initial deposit input Error","Input Error","Initial deposit is Invalid");
                     return true;

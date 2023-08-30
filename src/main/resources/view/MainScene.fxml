@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="648.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.MainSceneController">
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.MainSceneController">
    <children>
-      <VBox layoutX="126.0" layoutY="154.0" prefHeight="435.0" prefWidth="412.0" spacing="10.0" style="-fx-background-color: green;">
+      <VBox layoutX="119.0" layoutY="150.0" prefHeight="528.0" prefWidth="487.0" spacing="10.0" style="-fx-background-color: lightGreen; -fx-background-radius: 200;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <children>
             <Button fx:id="btnAccount" mnemonicParsing="false" onAction="#btnAccountOnAction" prefHeight="54.0" prefWidth="429.0" style="-fx-border-color: blue; -fx-border-radius: 30; -fx-background-radius: 30; -fx-border-width: 3;" text="Create a New Account" VBox.vgrow="ALWAYS">
                <VBox.margin>
@@ -50,6 +50,9 @@
                </font>
             </Button>
          </children>
+         <padding>
+            <Insets left="120.0" right="100.0" top="40.0" />
+         </padding>
       </VBox>
       <Label alignment="CENTER" layoutX="77.0" layoutY="56.0" prefHeight="73.0" prefWidth="623.0" style="-fx-background-color: lightBlue; -fx-background-radius: 15;" text="Welcome to Smart Banking App" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0">
          <font>

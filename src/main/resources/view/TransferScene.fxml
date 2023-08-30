@@ -1,14 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.dep11.TransferSceneController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.TransferSceneController">
+   <children>
+      <Label alignment="CENTER" layoutX="56.0" layoutY="49.0" prefHeight="73.0" prefWidth="623.0" style="-fx-background-color: lightBlue; -fx-background-radius: 15;" text="Money Transfer" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font name="FreeSerif" size="40.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="14.0" layoutY="106.0" prefHeight="502.0" prefWidth="660.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="359.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="409.0" minWidth="10.0" prefWidth="216.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="85.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="86.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="140.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="174.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="186.0" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="193.0" minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="102.0" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="54.0" prefWidth="358.0" text="Enter Sender Account Number       :">
+               <font>
+                  <Font name="FreeSerif" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="20.0" prefHeight="54.0" prefWidth="358.0" text="Enter Reciever Account Number    :" GridPane.rowIndex="1">
+               <font>
+                  <Font name="FreeSerif" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblset21" layoutX="10.0" layoutY="98.0" prefHeight="54.0" prefWidth="358.0" text="Sender Current Account Balance    : Rs." GridPane.rowIndex="2">
+               <font>
+                  <Font name="FreeSerif" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSet22" layoutX="10.0" layoutY="176.0" prefHeight="54.0" prefWidth="358.0" text="Reciever Current Account Balance : Rs." GridPane.rowIndex="3">
+               <font>
+                  <Font name="FreeSerif" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSet23" layoutX="10.0" layoutY="251.0" prefHeight="54.0" prefWidth="358.0" text="Enter Transfer Amount                   : Rs." GridPane.rowIndex="4">
+               <font>
+                  <Font name="FreeSerif" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSet31" layoutX="10.0" layoutY="309.0" prefHeight="54.0" prefWidth="358.0" text="Sender New Account Balance         : Rs." GridPane.rowIndex="5">
+               <font>
+                  <Font name="FreeSerif" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSet32" layoutX="10.0" layoutY="378.0" prefHeight="54.0" prefWidth="358.0" text="Reciever New Account Balance      : Rs." GridPane.rowIndex="6">
+               <font>
+                  <Font name="FreeSerif" size="22.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtSenderNum" prefHeight="42.0" prefWidth="216.0" promptText="SDB-XXXXX" GridPane.columnIndex="1">
+               <font>
+                  <Font name="FreeSerif" size="24.0" />
+               </font>
+               <effect>
+                  <ColorAdjust brightness="-0.17" contrast="-0.02" hue="-0.21" saturation="0.1" />
+               </effect>
+            </TextField>
+            <Button fx:id="btnEnterSend" mnemonicParsing="false" onAction="#btnEnterSendOnAction" prefHeight="47.0" prefWidth="89.0" text="Enter" GridPane.columnIndex="2">
+               <font>
+                  <Font name="FreeSerif" size="23.0" />
+               </font>
+            </Button>
+            <TextField fx:id="txtRecieverNum" layoutX="369.0" layoutY="24.0" prefHeight="42.0" prefWidth="216.0" promptText="SDB-XXXXX" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="FreeSerif" size="24.0" />
+               </font>
+               <effect>
+                  <ColorAdjust brightness="-0.17" contrast="-0.02" hue="-0.21" saturation="0.1" />
+               </effect>
+            </TextField>
+            <Button fx:id="btnEnterReciev" layoutX="585.0" layoutY="22.0" mnemonicParsing="false" onAction="#btnEnterRecievOnAction" prefHeight="47.0" prefWidth="89.0" text="Enter" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="FreeSerif" size="23.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblDispSet21" prefHeight="48.0" prefWidth="216.0" text="00,000" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="FreeSerif" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDispSet22" layoutX="369.0" layoutY="169.0" prefHeight="48.0" prefWidth="216.0" text="00,000" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="FreeSerif" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtTransfeer" layoutX="369.0" layoutY="98.0" prefHeight="42.0" prefWidth="216.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button fx:id="btnTrensfer" layoutX="585.0" layoutY="95.0" mnemonicParsing="false" onAction="#btnTrensferOnAction" prefHeight="47.0" prefWidth="89.0" text="Enter" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font name="FreeSerif" size="23.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblDispSet31" layoutX="369.0" layoutY="240.0" prefHeight="48.0" prefWidth="216.0" text="00,000" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font name="FreeSerif" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDispSet32" layoutX="369.0" layoutY="381.0" prefHeight="48.0" prefWidth="216.0" text="00,000" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <font>
+                  <Font name="FreeSerif" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <Button fx:id="btnAnother" layoutX="170.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnAnotherOnAction" prefHeight="54.0" prefWidth="205.0" text="Another Transfer">
+         <font>
+            <Font name="FreeSerif" size="23.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnMain" layoutX="442.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnMainOnAction" prefHeight="54.0" prefWidth="205.0" text="Back to Main">
+         <font>
+            <Font name="FreeSerif" size="23.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>
