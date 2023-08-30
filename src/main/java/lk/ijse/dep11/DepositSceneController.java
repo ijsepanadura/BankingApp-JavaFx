@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -82,7 +84,7 @@ public class DepositSceneController {
         lblNewBalanceDisp.setText(String.format("%,d.00",Integer.parseInt(store.get(accountIndexNum)[2])));
         btnAgain.setDisable(false);
         btnDeposit.setDisable(true);
-        btnMain.requestFocus();
+        btnAgain.requestFocus();
     }
 
     public void btnMainOnAction(ActionEvent actionEvent)throws Exception {
@@ -120,6 +122,7 @@ public class DepositSceneController {
         btnDeposit.setVisible(false);
         lblNameInput.setVisible(false);
         txtAccount.clear();
+        txtDepoAmount.clear();
         txtAccount.requestFocus();
 
 
@@ -185,5 +188,21 @@ public class DepositSceneController {
             }
         }
         return false;
+    }
+
+    public void txtAccountOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)btnAccNum.fire();
+    }
+
+    public void btnAccNumOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)txtDepoAmount.requestFocus();
+    }
+
+    public void btnDepositOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)btnAgain.requestFocus();
+    }
+
+    public void txtDepoAmountOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)btnDeposit.fire();
     }
 }

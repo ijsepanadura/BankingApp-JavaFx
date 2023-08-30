@@ -64,7 +64,7 @@
             </Label>
             <TextField fx:id="txtWithdrawAmount" layoutX="311.0" layoutY="10.0" prefHeight="46.0" prefWidth="314.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
-                  <Font size="21.0" />
+                  <Font name="FreeSerif" size="24.0" />
                </font>
             </TextField>
             <Label fx:id="lblCurrBalanceDisp" layoutX="311.0" layoutY="84.0" prefHeight="47.0" prefWidth="284.0" GridPane.columnIndex="1" GridPane.rowIndex="3">

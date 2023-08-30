@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="root" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.MainSceneController">
    <children>
-      <VBox layoutX="119.0" layoutY="150.0" prefHeight="528.0" prefWidth="487.0" spacing="10.0" style="-fx-background-color: lightGreen; -fx-background-radius: 200;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <VBox layoutX="119.0" layoutY="132.0" prefHeight="546.0" prefWidth="680.0" spacing="10.0" style="-fx-background-color: lightGreen; -fx-background-radius: 50;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <children>
             <Button fx:id="btnAccount" mnemonicParsing="false" onAction="#btnAccountOnAction" prefHeight="54.0" prefWidth="429.0" style="-fx-border-color: blue; -fx-border-radius: 30; -fx-background-radius: 30; -fx-border-width: 3;" text="Create a New Account" VBox.vgrow="ALWAYS">
                <VBox.margin>

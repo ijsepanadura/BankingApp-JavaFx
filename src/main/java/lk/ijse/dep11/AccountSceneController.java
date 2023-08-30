@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -157,5 +159,17 @@ public class AccountSceneController {
         alert.setHeaderText(Header);
         alert.setContentText(Content);
         alert.showAndWait();
+    }
+
+    public void txtNameOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)txtDeposit.requestFocus();
+    }
+
+    public void txtDepositOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)btnSave.fire();
+    }
+
+    public void btnNewAccountOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)txtName.requestFocus();
     }
 }
