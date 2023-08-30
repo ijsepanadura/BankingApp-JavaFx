@@ -13,7 +13,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import lk.ijse.dep11.tm.Data;
 
 import java.util.ArrayList;
 
@@ -79,7 +78,6 @@ public class AccountSceneController {
         txtDeposit.setDisable(false);
         btnSave.setDisable(false);
         lblStatus.setVisible(false);
-        //System.out.println("in new account "+temp.size());
         txtNumber.setText(String.format("SDB-%05d",temp.size()+1));
         txtName.requestFocus();
 
