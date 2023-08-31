@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="root" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.DeleteSceneController">
    <children>
       <Label alignment="CENTER" layoutX="56.0" layoutY="49.0" prefHeight="73.0" prefWidth="623.0" style="-fx-background-color: lightBlue; -fx-background-radius: 15;" text="Delete Account" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0">
@@ -54,24 +53,24 @@
                   <Font name="FreeSerif" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="tctAccNum" prefHeight="51.0" prefWidth="330.0" promptText="SDB-XXXXX" GridPane.columnIndex="1">
+            <TextField fx:id="tctAccNum" onKeyPressed="#tctAccNumOnKeyPressed" prefHeight="51.0" prefWidth="330.0" promptText="SDB-XXXXX" GridPane.columnIndex="1">
                <font>
                   <Font name="FreeSerif" size="24.0" />
                </font>
             </TextField>
-            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="44.0" prefWidth="236.0" text="Delete Account" textFill="#dd2a2a" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDeleteOnAction" onKeyPressed="#btnDeleteOnKeyPressed" prefHeight="44.0" prefWidth="236.0" text="Delete Account" textFill="#dd2a2a" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="FreeSerif" size="24.0" />
                </font>
             </Button>
          </children>
       </GridPane>
-      <Button fx:id="btnAnother" layoutX="184.0" layoutY="589.0" mnemonicParsing="false" onAction="#btnAnotherOnAction" prefHeight="44.0" prefWidth="201.0" text="Delete Another">
+      <Button fx:id="btnAnother" layoutX="184.0" layoutY="589.0" mnemonicParsing="false" onAction="#btnAnotherOnAction" prefHeight="52.0" prefWidth="203.0" style="-fx-background-radius: 15;" text="Delete Another">
          <font>
             <Font name="FreeSerif" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="btnMain" layoutX="428.0" layoutY="589.0" mnemonicParsing="false" onAction="#btnMainOnAction" prefHeight="44.0" prefWidth="171.0" text="Back to Main">
+      <Button fx:id="btnMain" layoutX="428.0" layoutY="589.0" mnemonicParsing="false" onAction="#btnMainOnAction" prefHeight="52.0" prefWidth="179.0" style="-fx-background-radius: 15;" text="Back to Main">
          <font>
             <Font name="FreeSerif" size="24.0" />
          </font>

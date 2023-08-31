@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="root" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.TransferSceneController">
    <children>
       <Label alignment="CENTER" layoutX="56.0" layoutY="49.0" prefHeight="73.0" prefWidth="623.0" style="-fx-background-color: lightBlue; -fx-background-radius: 15;" text="Money Transfer" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
@@ -69,7 +68,7 @@
                   <Font name="FreeSerif" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="txtSenderNum" prefHeight="42.0" prefWidth="216.0" promptText="SDB-XXXXX" GridPane.columnIndex="1">
+            <TextField fx:id="txtSenderNum" onKeyPressed="#txtSenderNumOnKeyPressed" prefHeight="42.0" prefWidth="216.0" promptText="SDB-XXXXX" GridPane.columnIndex="1">
                <font>
                   <Font name="FreeSerif" size="24.0" />
                </font>
@@ -77,12 +76,12 @@
                   <ColorAdjust brightness="-0.17" contrast="-0.02" hue="-0.21" saturation="0.1" />
                </effect>
             </TextField>
-            <Button fx:id="btnEnterSend" mnemonicParsing="false" onAction="#btnEnterSendOnAction" prefHeight="47.0" prefWidth="89.0" text="Enter" GridPane.columnIndex="2">
+            <Button fx:id="btnEnterSend" mnemonicParsing="false" onAction="#btnEnterSendOnAction" onKeyPressed="#btnEnterSendOnKeyPressed" prefHeight="47.0" prefWidth="89.0" text="Enter" GridPane.columnIndex="2">
                <font>
                   <Font name="FreeSerif" size="23.0" />
                </font>
             </Button>
-            <TextField fx:id="txtRecieverNum" layoutX="369.0" layoutY="24.0" prefHeight="42.0" prefWidth="216.0" promptText="SDB-XXXXX" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="txtRecieverNum" layoutX="369.0" layoutY="24.0" onKeyPressed="#txtRecieverNumOnKeyPressed" prefHeight="42.0" prefWidth="216.0" promptText="SDB-XXXXX" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="FreeSerif" size="24.0" />
                </font>
@@ -90,7 +89,7 @@
                   <ColorAdjust brightness="-0.17" contrast="-0.02" hue="-0.21" saturation="0.1" />
                </effect>
             </TextField>
-            <Button fx:id="btnEnterReciev" layoutX="585.0" layoutY="22.0" mnemonicParsing="false" onAction="#btnEnterRecievOnAction" prefHeight="47.0" prefWidth="89.0" text="Enter" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="btnEnterReciev" layoutX="585.0" layoutY="22.0" mnemonicParsing="false" onAction="#btnEnterRecievOnAction" onKeyPressed="#btnEnterRecievOnKeyPressed" prefHeight="47.0" prefWidth="89.0" text="Enter" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="FreeSerif" size="23.0" />
                </font>
@@ -105,8 +104,11 @@
                   <Font name="FreeSerif" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="txtTransfeer" layoutX="369.0" layoutY="98.0" prefHeight="42.0" prefWidth="216.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Button fx:id="btnTrensfer" layoutX="585.0" layoutY="95.0" mnemonicParsing="false" onAction="#btnTrensferOnAction" prefHeight="47.0" prefWidth="89.0" text="Enter" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <TextField fx:id="txtTransfeer" layoutX="369.0" layoutY="98.0" onKeyPressed="#txtTransfeerOnKeyPressed" prefHeight="42.0" prefWidth="216.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font name="FreeSerif" size="24.0" />
+               </font></TextField>
+            <Button fx:id="btnTrensfer" layoutX="585.0" layoutY="95.0" mnemonicParsing="false" onAction="#btnTrensferOnAction" onKeyPressed="#btnTrensferOnKeyPressed" prefHeight="47.0" prefWidth="89.0" text="Enter" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font name="FreeSerif" size="23.0" />
                </font>
@@ -123,12 +125,12 @@
             </Label>
          </children>
       </GridPane>
-      <Button fx:id="btnAnother" layoutX="170.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnAnotherOnAction" prefHeight="54.0" prefWidth="205.0" text="Another Transfer">
+      <Button fx:id="btnAnother" layoutX="170.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnAnotherOnAction" prefHeight="54.0" prefWidth="205.0" style="-fx-background-radius: 15;" text="Another Transfer">
          <font>
             <Font name="FreeSerif" size="23.0" />
          </font>
       </Button>
-      <Button fx:id="btnMain" layoutX="442.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnMainOnAction" prefHeight="54.0" prefWidth="205.0" text="Back to Main">
+      <Button fx:id="btnMain" layoutX="442.0" layoutY="608.0" mnemonicParsing="false" onAction="#btnMainOnAction" prefHeight="54.0" prefWidth="205.0" style="-fx-background-radius: 15;" text="Back to Main">
          <font>
             <Font name="FreeSerif" size="23.0" />
          </font>

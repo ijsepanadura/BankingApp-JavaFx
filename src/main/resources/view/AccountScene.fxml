@@ -3,9 +3,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
-<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.effect.SepiaTone?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -22,8 +23,8 @@
       </Label>
       <GridPane layoutX="13.0" layoutY="198.0" prefHeight="218.0" prefWidth="630.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="309.0" minWidth="10.0" prefWidth="248.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="444.0" minWidth="10.0" prefWidth="382.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="309.0" minWidth="10.0" prefWidth="290.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="444.0" minWidth="10.0" prefWidth="340.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
@@ -31,50 +32,55 @@
           <RowConstraints maxHeight="97.0" minHeight="10.0" prefHeight="71.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="36.0" prefWidth="261.0" text="Account Number            :">
+            <Label prefHeight="36.0" prefWidth="261.0" text="Account Number              :">
                <font>
                   <Font name="FreeSerif" size="23.0" />
                </font>
             </Label>
-            <Label layoutX="10.0" layoutY="16.0" prefHeight="36.0" prefWidth="261.0" text="Account Holder Name    :" GridPane.rowIndex="1">
+            <Label layoutX="10.0" layoutY="16.0" prefHeight="36.0" prefWidth="261.0" text="Account Holder Name      :" GridPane.rowIndex="1">
                <font>
                   <Font name="FreeSerif" size="23.0" />
                </font>
             </Label>
-            <Label layoutX="10.0" layoutY="64.0" prefHeight="36.0" prefWidth="261.0" text="Initial Deposit                 :" GridPane.rowIndex="2">
+            <Label layoutX="10.0" layoutY="64.0" prefHeight="36.0" prefWidth="295.0" text="Initial Deposit                   : Rs." GridPane.rowIndex="2">
                <font>
                   <Font name="FreeSerif" size="23.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNumber" editable="false" prefHeight="44.0" prefWidth="438.0" promptText="SDB-XXXXX" style="-fx-font: FreeSerif;" GridPane.columnIndex="1">
+            <TextField fx:id="txtNumber" editable="false" prefHeight="44.0" prefWidth="438.0" promptText="SDB-XXXXX" GridPane.columnIndex="1">
                <font>
-                  <Font name="FreeSerif Bold" size="25.0" />
+                  <Font name="FreeSerif Bold" size="24.0" />
                </font>
                <effect>
-                  <Lighting>
+                  <Lighting diffuseConstant="1.86" specularConstant="0.0" specularExponent="37.21" surfaceScale="2.78">
                      <bumpInput>
-                        <Reflection />
+                        <SepiaTone>
+                           <input>
+                              <ColorAdjust />
+                           </input>
+                        </SepiaTone>
                      </bumpInput>
                      <light>
-                        <Light.Distant>
+                        <Light.Distant azimuth="360.0" elevation="132.91">
                            <color>
-                              <Color red="0.7355628609657288" green="0.9868420958518982" blue="0.9533382058143616" />
+                              <Color red="0.6410087943077087" green="0.9736841917037964" blue="0.6040448546409607" />
                            </color>
                         </Light.Distant>
                      </light>
                   </Lighting>
                </effect></TextField>
-            <TextField fx:id="txtName" layoutX="202.0" layoutY="18.0" onKeyPressed="#txtNameOnKeyPressed" prefHeight="48.0" prefWidth="438.0" promptText="Ex- Name" style="-fx-font: FreeSerif;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="txtName" layoutX="202.0" layoutY="18.0" onKeyPressed="#txtNameOnKeyPressed" prefHeight="41.0" prefWidth="382.0" promptText="Ex- Name" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
-                  <Font name="FreeSerif" size="25.0" />
-               </font></TextField>
-            <TextField fx:id="txtDeposit" layoutX="202.0" layoutY="66.0" onKeyPressed="#txtDepositOnKeyPressed" prefHeight="54.0" prefWidth="438.0" promptText="&gt; Rs. 5000.00" style="-fx-font: FreeSerif;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Font name="FreeSerif" size="24.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtDeposit" layoutX="202.0" layoutY="66.0" onKeyPressed="#txtDepositOnKeyPressed" prefHeight="41.0" prefWidth="382.0" promptText="&gt;  5000.00" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
-                  <Font name="FreeSerif" size="25.0" />
+                  <Font name="FreeSerif" size="24.0" />
                </font></TextField>
          </children>
       </GridPane>
-      <Button fx:id="btnSave" layoutX="249.0" layoutY="447.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="63.0" prefWidth="175.0" text="Save">
+      <Button fx:id="btnSave" layoutX="249.0" layoutY="447.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="63.0" prefWidth="175.0" style="-fx-background-radius: 20;" text="Save">
          <font>
             <Font name="FreeSerif" size="26.0" />
          </font></Button>
@@ -83,11 +89,11 @@
             <Font name="FreeSerif" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="btnNewAccount" layoutX="472.0" layoutY="123.0" mnemonicParsing="false" onAction="#btnNewAccountOnAction" onKeyPressed="#btnNewAccountOnKeyPressed" prefHeight="63.0" prefWidth="207.0" text="+   New Account" AnchorPane.rightAnchor="10.0">
+      <Button fx:id="btnNewAccount" layoutX="472.0" layoutY="123.0" mnemonicParsing="false" onAction="#btnNewAccountOnAction" onKeyPressed="#btnNewAccountOnKeyPressed" prefHeight="63.0" prefWidth="207.0" style="-fx-background-color: ; -fx-background-radius: 20; -fx-border-color: black; -fx-opacity: 0.7; -fx-border-radius: 20;" text="+   New Account" AnchorPane.rightAnchor="10.0">
          <font>
             <Font name="FreeSerif" size="24.0" />
          </font></Button>
-      <Button fx:id="btnBack" layoutX="446.0" layoutY="447.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="63.0" prefWidth="194.0" text="Back to Main">
+      <Button fx:id="btnBack" layoutX="446.0" layoutY="447.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="63.0" prefWidth="194.0" style="-fx-background-radius: 20;" text="Back to Main">
          <font>
             <Font name="FreeSerif" size="21.0" />
          </font></Button>

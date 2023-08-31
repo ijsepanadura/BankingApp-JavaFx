@@ -190,18 +190,18 @@ public class DepositSceneController {
     }
 
     public void txtAccountOnKeyPressed(KeyEvent keyEvent) {
-        if(keyEvent.getCode() == KeyCode.ENTER)btnAccNum.fire();
+        if(keyEvent.getCode() == KeyCode.ENTER)btnAccNum.requestFocus();
     }
 
     public void btnAccNumOnKeyPressed(KeyEvent keyEvent) {
-        if(keyEvent.getCode() == KeyCode.ENTER)txtDepoAmount.requestFocus();
+        if(keyEvent.getCode() == KeyCode.ENTER)btnAccNum.fire();
     }
 
     public void btnDepositOnKeyPressed(KeyEvent keyEvent) {
-        if(keyEvent.getCode() == KeyCode.ENTER)btnAgain.requestFocus();
+        if(keyEvent.getCode() == KeyCode.ENTER)btnDeposit.fire();
     }
 
     public void txtDepoAmountOnKeyPressed(KeyEvent keyEvent) {
-        if(keyEvent.getCode() == KeyCode.ENTER)btnDeposit.fire();
+        if(keyEvent.getCode() == KeyCode.ENTER)btnDeposit.requestFocus();
     }
 }

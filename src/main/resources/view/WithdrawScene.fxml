@@ -32,14 +32,14 @@
                   <Font name="FreeSerif" size="23.0" />
                </font>
             </Label>
-            <TextField fx:id="txtAccount" prefHeight="46.0" prefWidth="314.0" promptText="SDB-XXXXX" GridPane.columnIndex="1">
+            <TextField fx:id="txtAccount" onKeyPressed="#txtAccountOnKeyPressed" prefHeight="46.0" prefWidth="314.0" promptText="SDB-XXXXX" GridPane.columnIndex="1">
                <font>
-                  <Font size="21.0" />
+                  <Font name="FreeSerif" size="24.0" />
                </font>
             </TextField>
-            <Button fx:id="btnAccNum" mnemonicParsing="false" onAction="#btnAccNumOnAction" prefHeight="40.0" prefWidth="110.0" text="Submit" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="btnAccNum" mnemonicParsing="false" onAction="#btnAccNumOnAction" onKeyPressed="#btnAccNumOnKeyPressed" prefHeight="45.0" prefWidth="139.0" text="Submit" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
-                  <Font size="16.0" />
+                  <Font name="FreeSerif" size="25.0" />
                </font>
             </Button>
             <Label fx:id="lblName" layoutX="10.0" layoutY="10.0" prefHeight="47.0" prefWidth="284.0" text="Account Holder Name       :" GridPane.rowIndex="2">
@@ -52,9 +52,9 @@
                   <Font name="FreeSerif" size="23.0" />
                </font>
             </Label>
-            <Button fx:id="btnWithdraw" mnemonicParsing="false" onAction="#btnWithdrawOnAction" prefHeight="43.0" prefWidth="110.0" text="Withdraw" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Button fx:id="btnWithdraw" mnemonicParsing="false" onAction="#btnWithdrawOnAction" onKeyPressed="#btnWithdrawOnKeyPressed" prefHeight="43.0" prefWidth="150.0" text="Withdraw" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
-                  <Font size="18.0" />
+                  <Font name="FreeSerif" size="21.0" />
                </font>
             </Button>
             <Label fx:id="lblCurBalance" layoutX="10.0" layoutY="88.0" prefHeight="47.0" prefWidth="296.0" text="Current Account Balance   : Rs." GridPane.rowIndex="3">
@@ -62,7 +62,7 @@
                   <Font name="FreeSerif" size="23.0" />
                </font>
             </Label>
-            <TextField fx:id="txtWithdrawAmount" layoutX="311.0" layoutY="10.0" prefHeight="46.0" prefWidth="314.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <TextField fx:id="txtWithdrawAmount" layoutX="311.0" layoutY="10.0" onKeyPressed="#txtWithdrawAmountOnKeyPressed" prefHeight="46.0" prefWidth="314.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font name="FreeSerif" size="24.0" />
                </font>
@@ -87,12 +87,12 @@
                   <Font name="FreeSerif" size="23.0" />
                </font>
             </Label>
-            <Button fx:id="btnAgain" layoutX="311.0" layoutY="267.0" mnemonicParsing="false" onAction="#btnAgainOnAction" prefHeight="52.0" prefWidth="201.0" text="Withdraw Again" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+            <Button fx:id="btnAgain" layoutX="311.0" layoutY="267.0" mnemonicParsing="false" onAction="#btnAgainOnAction" prefHeight="52.0" prefWidth="201.0" style="-fx-background-radius: 15;" text="Withdraw Again" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                <font>
-                  <Font size="19.0" />
+                  <Font name="FreeSerif" size="25.0" />
                </font>
             </Button>
-            <Button fx:id="btnMain" mnemonicParsing="false" onAction="#btnMainOnAction" prefHeight="52.0" prefWidth="190.0" text="Back to Main" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+            <Button fx:id="btnMain" mnemonicParsing="false" onAction="#btnMainOnAction" prefHeight="52.0" prefWidth="190.0" style="-fx-background-radius: 15;" text="Back to Main" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                <font>
                   <Font name="FreeSerif" size="22.0" />
                </font>

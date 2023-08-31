@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -54,7 +56,7 @@ public class BalanceSceneController {
         lblABalance.setVisible(true);
         lblABalanceD.setVisible(true);
         btnAnother.setDisable(false);
-        btnMain.requestFocus();
+        btnAnother.requestFocus();
 
     }
 
@@ -140,5 +142,13 @@ public class BalanceSceneController {
         alert.setHeaderText(Header);
         alert.setContentText(Content);
         alert.showAndWait();
+    }
+
+    public void txtAccNumOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)btnEnter.requestFocus();
+    }
+
+    public void btnEnterOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)btnEnter.fire();
     }
 }

@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -79,7 +81,7 @@ public class WithdrawSceneController {
         lblNewBalanceDisp.setText(String.format("%,d.00",Integer.parseInt(store.get(accountIndexNum)[2])));
         btnAgain.setDisable(false);
         btnWithdraw.setDisable(true);
-        btnMain.requestFocus();
+        btnAgain.requestFocus();
     }
 
     public void btnAgainOnAction(ActionEvent actionEvent) {
@@ -185,5 +187,21 @@ public class WithdrawSceneController {
             }
         }
         return false;
+    }
+
+    public void txtAccountOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)btnAccNum.requestFocus();
+    }
+
+    public void btnAccNumOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)btnAccNum.fire();
+    }
+
+    public void btnWithdrawOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)btnWithdraw.fire();
+    }
+
+    public void txtWithdrawAmountOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)btnWithdraw.requestFocus();
     }
 }

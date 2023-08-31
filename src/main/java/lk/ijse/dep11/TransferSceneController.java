@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -92,16 +94,18 @@ public class TransferSceneController {
             return;
         }
         btnTrensfer.setDisable(true);
-        lblDispSet31.setText(String.format("%,.2f",
-                Integer.parseInt(store.get(sendAccIndex)[2]) -1.02*Integer.parseInt(txtTransfeer.getText())));
-        lblDispSet32.setText(String.format("%,.2f",
-                Float.valueOf(store.get(reciAccIndex)[2]) + Float.valueOf(txtTransfeer.getText())));
+        store.get(sendAccIndex)[2] = Integer.parseInt( store.get(sendAccIndex)[2]) - (int)(1.02*Integer.parseInt(txtTransfeer.getText()))+"";
+        lblDispSet31.setText(String.format("%,.2f",Float.valueOf(store.get(sendAccIndex)[2])));
+                //Integer.parseInt(store.get(sendAccIndex)[2]) -1.02*Integer.parseInt(txtTransfeer.getText())));
+        store.get(reciAccIndex)[2] = Integer.parseInt(store.get(reciAccIndex)[2]) + Integer.parseInt(txtTransfeer.getText()) + "";
+        lblDispSet32.setText(String.format("%,.2f",Float.valueOf(store.get(reciAccIndex)[2])));
+                //Float.valueOf(store.get(reciAccIndex)[2]) + Float.valueOf(txtTransfeer.getText())));
         lblSet31.setVisible(true);
         lblSet32.setVisible(true);
         lblDispSet31.setVisible(true);
         lblDispSet32.setVisible(true);
         btnAnother.setDisable(false);
-        btnMain.requestFocus();
+        btnAnother.requestFocus();
     }
 
     public void btnAnotherOnAction(ActionEvent actionEvent) {
@@ -209,4 +213,27 @@ public class TransferSceneController {
         return false;
     }
 
+    public void txtSenderNumOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)btnEnterSend.requestFocus();
+    }
+
+    public void btnEnterSendOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)btnEnterSend.fire();
+    }
+
+    public void txtRecieverNumOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)btnEnterReciev.requestFocus();
+    }
+
+    public void btnEnterRecievOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)btnEnterReciev.fire();
+    }
+
+    public void txtTransfeerOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)btnTrensfer.requestFocus();
+    }
+
+    public void btnTrensferOnKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER)btnTrensfer.fire();
+    }
 }

@@ -164,10 +164,10 @@ public class AccountSceneController {
     }
 
     public void txtDepositOnKeyPressed(KeyEvent keyEvent) {
-        if(keyEvent.getCode() == KeyCode.ENTER)btnSave.fire();
+        if(keyEvent.getCode() == KeyCode.ENTER)btnSave.requestFocus();
     }
 
     public void btnNewAccountOnKeyPressed(KeyEvent keyEvent) {
-        if(keyEvent.getCode() == KeyCode.ENTER)txtName.requestFocus();
+        if(keyEvent.getCode() == KeyCode.ENTER)btnNewAccount.fire();
     }
 }
