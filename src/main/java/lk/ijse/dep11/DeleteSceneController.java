@@ -30,7 +30,8 @@ public class DeleteSceneController {
     public ArrayList<String[]> store;
 
     public void initData(ArrayList<String[]> data){
-        store = data;
+        if(data == null)store= new ArrayList<String[]>();
+        else store=data;
     }
     public void initialize(){
         initialCond();
@@ -62,6 +63,7 @@ public class DeleteSceneController {
             store.set(accIndex,new String[0]);
             lblStatus.setVisible(true);
             btnAnother.setDisable(false);
+            btnDelete.setDisable(true);
         }else initialCond();
     }
 

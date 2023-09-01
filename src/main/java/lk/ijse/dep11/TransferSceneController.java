@@ -43,7 +43,8 @@ public class TransferSceneController {
         initialCond();
     }
     public void initData(ArrayList<String[]> data){
-        store = data;
+        if(data == null)store= new ArrayList<String[]>();
+        else store=data;
     }
 
     public void btnEnterSendOnAction(ActionEvent actionEvent) {

@@ -31,12 +31,15 @@ public class AccountSceneController {
 
 
     public void initialize(){
+        if(temp == null)temp = new ArrayList<String[]>();
         txtNumber.setDisable(true);
         txtName.setDisable(true);
         txtDeposit.setDisable(true);
         btnSave.setDisable(true);
         lblStatus.setVisible(false);
         btnNewAccount.requestFocus();
+
+
 
 
     }

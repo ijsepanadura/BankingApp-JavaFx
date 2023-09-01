@@ -36,7 +36,8 @@ public class BalanceSceneController {
         intialCond();
     }
     public void initData(ArrayList<String[]> data){
-        store = data;
+        if(data == null)store= new ArrayList<String[]>();
+        else store=data;
     }
 
     public void btnEnterOnAction(ActionEvent actionEvent) {
